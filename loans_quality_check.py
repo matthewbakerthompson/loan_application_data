@@ -86,10 +86,11 @@ if __name__ == "__main__":
 
     # Generate the data quality report
     data_quality_report = generate_data_quality_report(df)
-    print("\nData Quality Report:")
+    print("\nLoan Application Data Quality Report:")
     for section, content in data_quality_report.items():
         print(f"\n{section}:\n{content}")
 
     # Create an HTML report using ydata-profiling
-    profile = ProfileReport(df)
+    report_title = "Loan Application Data Quality Report"  # Edit this title
+    profile = ProfileReport(df, title=report_title)
     profile.to_file("data_quality_report.html")
